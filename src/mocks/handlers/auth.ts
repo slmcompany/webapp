@@ -9,6 +9,7 @@ export interface User {
   id: number;
   name: string;
   phone: string;
+  password: string;
   email: string | null;
   address: string | null;
   tax_code: string | null;
@@ -35,6 +36,7 @@ const users: User[] = [
     id: 1,
     name: "Nguyễn TIến Mạnh",
     phone: "0964920242",
+    password: "slm123",
     email: "manh.nt@example.com",
     address: "Hà Nội",
     tax_code: null,
@@ -58,6 +60,7 @@ const users: User[] = [
     id: 2,
     name: "Trần Bảo Ngọc",
     phone: "0966874083",
+    password: "slm123",
     email: "ngoc.tb@example.com",
     address: "Hồ Chí Minh",
     tax_code: "0123456789",
@@ -81,6 +84,7 @@ const users: User[] = [
     id: 3,
     name: "Đỗ Thuỳ Dung",
     phone: "0394307569",
+    password: "slm123",
     email: "dung.dt@example.com",
     address: "Đà Nẵng",
     tax_code: "0987654321",
@@ -104,6 +108,7 @@ const users: User[] = [
     id: 4,
     name: "Nguyễn Đình Linh",
     phone: "0917599966",
+    password: "slm123",
     email: "linh.nd@example.com",
     address: "Hải Phòng",
     tax_code: null,
@@ -127,6 +132,7 @@ const users: User[] = [
     id: 5,
     name: "Lê Thị Mai",
     phone: "0912345678",
+    password: "slm123",
     email: "mai.lt@example.com",
     address: "Hà Nội",
     tax_code: null,
@@ -150,6 +156,7 @@ const users: User[] = [
     id: 6,
     name: "Phạm Văn Hoàng",
     phone: "0923456789",
+    password: "slm123",
     email: "hoang.pv@example.com",
     address: "Hồ Chí Minh",
     tax_code: null,
@@ -173,6 +180,7 @@ const users: User[] = [
     id: 7,
     name: "Trần Thị Hương",
     phone: "0934567890",
+    password: "slm123",
     email: "huong.tt@example.com",
     address: "Hà Nội",
     tax_code: null,
@@ -196,6 +204,7 @@ const users: User[] = [
     id: 8,
     name: "Nguyễn Văn Thành",
     phone: "0945678901",
+    password: "slm123",
     email: "thanh.nv@example.com",
     address: "Đà Nẵng",
     tax_code: null,
@@ -219,6 +228,7 @@ const users: User[] = [
     id: 9,
     name: "Lê Văn Hùng",
     phone: "0956789012",
+    password: "slm123",
     email: "hung.lv@example.com",
     address: "Hải Phòng",
     tax_code: null,
@@ -244,14 +254,25 @@ const users: User[] = [
 export const authHandlers = [
   // Login handler
   http.post('/api/auth/login', async ({ request }) => {
-    const { phone } = await request.json() as LoginRequest
+    const { phone, password } = await request.json() as LoginRequest
     
-    const user = users.find(u => u.phone === phone)
-    
-    if (!user) {
+    // Check if both phone and password are provided
+    if (!phone || !password) {
       return new HttpResponse(
         JSON.stringify({ 
-          message: 'Invalid credentials'
+          message: 'Phone and password are required'
+        }), 
+        { status: 400 }
+      )
+    }
+
+    const user = users.find(u => u.phone === phone)
+    
+    // Check if password matches
+    if (!user || password !== user.password) {
+      return new HttpResponse(
+        JSON.stringify({ 
+          message: 'Invalid phone number or password'
         }), 
         { status: 401 }
       )
