@@ -14,9 +14,8 @@ export const UserProfile: React.FC = () => {
   const { user } = location.state as LocationState;
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleUpdateUser = (updatedUser: User) => {
-    // TODO: Handle user update
-    setIsDrawerOpen(false);
+  const handleUpdateUser = () => {
+    // Implementation here
   };
 
   if (!user) {

@@ -244,7 +244,7 @@ const users: User[] = [
 export const authHandlers = [
   // Login handler
   http.post('/api/auth/login', async ({ request }) => {
-    const { phone, password } = await request.json() as LoginRequest
+    const { phone } = await request.json() as LoginRequest
     
     const user = users.find(u => u.phone === phone)
     

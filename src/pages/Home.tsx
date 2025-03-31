@@ -2,14 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
 import {
-  HomeIcon,
   UserIcon,
-  SquaresPlusIcon,
   ChartPieIcon,
-  FilmIcon,
   BellIcon,
   DocumentDuplicateIcon,
-  EyeIcon
+  EyeIcon,
 } from '@heroicons/react/24/outline';
 
 // Import images

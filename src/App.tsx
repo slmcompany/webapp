@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from './pages/Login';
 import Home from './pages/Home';
@@ -8,7 +8,7 @@ import { useAuthStore } from './stores/authStore';
 import { Gallery } from './pages/Gallery';
 import { Products } from './pages/Products';
 import { Statistics } from './pages/Statistics';
-import { Customer } from './pages/Customer';
+import Customer from './pages/Customer';
 import { UserProfile } from './pages/UserProfile';
 import { CustomerAddNew } from './pages/CustomerAddNew';
 import { SolarMax } from './pages/SolarMax';
