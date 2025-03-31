@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "email": "user1@example.com",
+      "password": "hashed_password_1",
+      "fullName": "User One",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "email": "user2@example.com",
+      "password": "hashed_password_2",
+      "fullName": "User Two",
+      "avatar": "https://via.placeholder.com/150"
+    }
+  ],
+  "tokens": [
+    {
+      "id": 1,
+      "userId": 1,
+      "token": "mock-jwt-token-1",
+      "expiresAt": "2024-12-31T23:59:59Z"
+    }
+  ]
+} 

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer base {
+  body {
+    @apply bg-gray-50 m-0 min-h-screen min-w-[320px] font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors cursor-pointer font-medium;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Ant Design Carousel custom styles */
+.custom-dots {
+  bottom: -22px !important;
+}
+
+.custom-dots li {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.custom-dots li.slick-active {
+  width: 24px !important;
+}
+
+.custom-dots li button {
+  background: #C4C4D4 !important;
+  border-radius: 100px !important;
+  height: 6px !important;
+}
+
+.custom-dots li.slick-active button {
+  background: #ED1C24 !important;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
